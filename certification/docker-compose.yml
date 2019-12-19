@@ -10,10 +10,6 @@ services:
       - ./server1/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./datasets:/datasets
     environment:
-      # - node.name=node1
-      # - discovery.seed_hosts=server1,server2,server3
-      # - cluster.initial_master_nodes=node1,node2,node3
-      # - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
       - cluster.routing.allocation.disk.threshold_enabled=false
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"  
@@ -33,10 +29,6 @@ services:
       - ./server2/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./datasets:/datasets
     environment:
-      # - node.name=node2
-      # - discovery.seed_hosts=server1,server2,server3
-      # - cluster.initial_master_nodes=node1,node2,node3
-      # - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
       - cluster.routing.allocation.disk.threshold_enabled=false
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"  
@@ -56,10 +48,6 @@ services:
       - ./server3/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./datasets:/datasets
     environment:
-      # - node.name=node3
-      # - discovery.seed_hosts=server1,server2,server3
-      # - cluster.initial_master_nodes=node1,node2,node3
-      # - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
       - cluster.routing.allocation.disk.threshold_enabled=false
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"  
@@ -76,10 +64,6 @@ services:
     - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml:ro   
     container_name: kibana
     ports: ['5601:5601']
-    # environment: 
-    #   - server.name=kibana
-    #   - server.host=0.0.0.0
-    #   - elasticsearch.hosts=http://server1:9200
     networks: 
       - ee
 
